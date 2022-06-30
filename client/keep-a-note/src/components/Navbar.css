@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+.nav-body{
+    background-color:#3cf2ff;
+    box-shadow: 5px 5px 5px 7px #3cf2ff;
+    
+}
+
+.nav-txt{
+    color:#212121;
+    font-weight: bolder;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 2.2rem;
+}
+button{
+    background-color: transparent;
+    border:none;
+}
+
+.bttn{
+    background-color: hsl(340, 100%, 83%);
+    border-radius:10px;
+    font-weight: bolder;
+}
+
+.bttn:active{
+    background-color: #f48fb1;
+}
+
+/* .google-icon{
+    font-size: 22px;
+} */
+
+.login-text{
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.btn-g{
+    font-size: 22px;
+    border: black 1px solid;
+    border-radius: 5px;
+    margin:2px;
+ 
+}
+
+.btn-g:hover{
+    background-color:#3ab9c2 ;
+}
+
+#btn-g-1:active{
+    font-size: 18px;
+}
+
+.btn-dis{
+    font-size: 22px;
+    border: black 1px solid;
+    border-radius: 5px;
+    margin:2px;
+    background-color:#17878f ;
+    cursor: not-allowed;
+}
+
+@media only screen and (max-width: 991px) {
+    .login-text-2{
+        display: none;
+    }
+    .add-text{
+        display: none;
+    }
+    .out-text{
+        display: none;
+    }
+  }
+
+
+  @media only screen and (min-width: 992px) {
+    .add-icon{
+        display: none;
+    }
+    .out-icon{
+        display: none;
+    }
+  }
+
+  .modal-head{
+      font-weight: bolder;
+      text-align: center;
+  }

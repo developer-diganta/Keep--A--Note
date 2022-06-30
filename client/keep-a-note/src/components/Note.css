@@ -1,0 +1,33 @@
+.ico{
+    font-size:1.5rem;
+    color:#333333;
+}
+.ico:hover{
+    color:blue;
+}
+
+.ico:active{
+    color:black;
+}
+.btn-close{
+    border:1px solid black;
+    border-radius: 7%;
+    margin-top:5%;
+    margin-bottom:5%;
+    font-weight: bold;
+    background-color:rgb(253, 101, 101);
+}
+
+.btn-close:active{
+    background-color:rgb(255, 14, 14);
+}
+.fa-thumbtack{
+    font-size:1.5rem;
+    color:#333333;
+    padding:0.2rem;
+}
+.fa-thumbtack:hover{
+    font-size:1.5rem;
+    color:#000;
+    padding:0.2rem;
+}
