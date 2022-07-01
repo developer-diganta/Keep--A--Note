@@ -17,7 +17,8 @@
     "express": "^4.17.1",
     "google-auth-library": "^7.1.2",
     "md5": "^2.3.0",
-    "mongoose": "^5.12.13"
+    "mongoose": "^5.12.13",
+    "uniqid": "^5.4.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"

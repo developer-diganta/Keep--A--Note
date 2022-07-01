@@ -1,4 +1,5 @@
 require('dotenv').config();
+const uniqid = require('uniqid'); 
 const express=require("express");
 const bodyParser=require("body-parser");
 const mongoose = require("mongoose");
@@ -54,7 +55,7 @@ app.post("/api/getNotes",async function(req,res){
 
 
 app.post("/api/addNotes",async function(req,res){
-    const {token} = req.body;
+    const { token } = req.body;
     const ticket = await client.verifyIdToken({
         idToken: token.token,
         audience: process.env.GOOGLE_CLIENTID
@@ -62,11 +63,13 @@ app.post("/api/addNotes",async function(req,res){
 
     const email= md5(ticket.getPayload().email); 
  
-
+    const id = uniqid();
     const note = {
         name:req.body.data.name,
         desc:req.body.data.desc,
-        image:req.body.data.image
+        image: req.body.data.image,
+        tag: req.body.data.tag,
+        id:id
     };
 
     Note.findOneAndUpdate({email:email},{$push:{notes:note}},function(err,found){
@@ -111,7 +114,8 @@ app.post("/api/deleteNotes",async function(req,res){
 
     const a = await Note.findOne({email:email},async function(err,data){
         let notes=data.notes;
-        notes.splice(id,1);
+        // notes.splice(id,1);
+        notes = notes.filter(a=>a.id!==id);
         const b= await Note.findOneAndUpdate({email:email},{notes:notes},async function(err,data){
             if(err){
                 console.log(err);
@@ -135,11 +139,21 @@ app.post("/api/editNotes", async function(req,res){
 
 
     const a = await Note.findOne({email:email},async function(err,doc){
-        let notes=doc.notes;
-        notes[id].name=data.name;
-        notes[id].desc=data.desc;
-        notes[id].image = data.image;
-        notes[id].pinned = data.pinned;
+        let notes = doc.notes;
+        notes.forEach(a => {
+            if (a.id === id) {
+                a.name = data.name;
+                a.desc = data.desc;
+                a.image = data.image;
+                a.tag=data.tag;
+                a.pinned = data.pinned;
+            }
+        });
+        // notes[id].name=data.name;
+        // notes[id].desc=data.desc;
+        // notes[id].image = data.image;
+        // notes[id].pinned = data.pinned;
+	console.log(notes);
         const b= await Note.findOneAndUpdate({email:email},{notes:notes},async function(err,data){
             if(err){
                 console.log(err);

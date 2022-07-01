@@ -17,6 +17,7 @@ export default function EditForm(props){
             name:e.target.title.value,
             desc:e.target.desc.value,
             image: image,
+            tag:e.target.tag.value,
             pinned:props.pinned
         }
         dispatch(changeNoteCount());
@@ -29,6 +30,10 @@ export default function EditForm(props){
             <Form.Group controlId="title">
                 <Form.Label style={{fontWeight:"bold"}}>Title</Form.Label>
                 <Form.Control required name="title" defaultValue={props.title} as="textarea" rows={3} />
+            </Form.Group>
+            <Form.Group controlId="tag">
+                <Form.Label style={{fontWeight:"bold"}}>Tagline</Form.Label>
+                <Form.Control required name="tag" defaultValue={props.tag} as="textarea" rows={3} />
             </Form.Group>
             <Form.Group controlId="description">
                 <Form.Label style={{fontWeight:"bold"}}>Description</Form.Label>

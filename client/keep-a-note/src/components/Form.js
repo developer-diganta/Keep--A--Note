@@ -18,7 +18,8 @@ export default function AddNote(){
         name:e.target.title.value,
         desc:e.target.desc.value,
         image: image,
-        pinned: false
+        tag:e.target.tag.value,
+        pinned: false,
     }
     const user=JSON.parse(userData);
     setLoading(true)
@@ -35,8 +36,12 @@ export default function AddNote(){
                 <Form.Label  className="head-text">Title</Form.Label>
                 <Form.Control required name="title" as="textarea" rows={3} />
             </Form.Group>
+            <Form.Group controlId="tagline">
+                <Form.Label className="head-text">Tagline</Form.Label>
+                <Form.Control required name="tag" as="textarea" rows={3} />
+            </Form.Group>
             <Form.Group controlId="description">
-                <Form.Label className="head-text">Description</Form.Label>
+                <Form.Label className="head-text">Body</Form.Label>
                 <Form.Control required name="desc" as="textarea" rows={3} />
             </Form.Group>
             <div>

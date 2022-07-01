@@ -6,7 +6,7 @@ import loaderGif from "./note-loader.gif";
 import "./Notes.css";
 
   function createNote(x,i){
-    return <Note id={i} key={i} title={x.name} desc={x.desc} image={x.image} pinned={x.pinned} />
+    return <Note id={x.id} key={i} title={x.name} desc={x.desc} image={x.image} pinned={x.pinned} tag={x.tag} />
   }
 
   export default function Notes(props){
